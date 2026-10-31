@@ -1,0 +1,59 @@
+.collection-item {
+  width: 250px;
+  height: 300px;
+  position: relative;
+
+  img {
+    transition: transform 0.2s;
+  }
+
+  .details {
+    bottom: 15px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    .dtl-btn {
+      color: black;
+      background-color: #fff;
+      padding: 10px 13.5px;
+      transition: all 0.3s;
+      border-radius: 50%;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    img {
+      transform: scale(1.05);
+    }
+    .dtl-btn {
+      color: #fff !important;
+      background: black !important;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .collection-item {
+    width: 200px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .collection-item {
+    width: 125px;
+    height: 150px;
+  }
+}
