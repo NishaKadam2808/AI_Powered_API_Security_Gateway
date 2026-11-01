@@ -1,59 +1,149 @@
-# FrontendNew
+# E-Commerce Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.5.
+Frontend for a basic e-commerce website, built with Angular. It is part of the **AI-Powered API Security Gateway** project and works as a demo client.
 
-## Development server
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- Trending products
+- Product collections grouped by category
+- Products in a collection
+- Product page with image carousel, quantity selector, and details
+- Cart
+- Login, register, forgot password, and reset password pages
+- Account details, edit account details, and edit address pages
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Requirements
 
-## Code scaffolding
+| Tool | Version | Notes |
+|------|---------|-------|
+| Node.js | **22.22.3 or newer**, or **24.15.0 or newer**, or **26.0.0 or newer** | Required by the Angular CLI. Older versions will not run. |
+| npm | 10 or newer | Comes with Node.js |
+| Git | Any recent version | To clone the repository |
+| Angular | Installed through `npm install` | See `package.json` for the exact version |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Check your versions:
 
 ```bash
-ng build
+node -v
+npm -v
+git --version
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+If your Node.js is too old, download the latest LTS from https://nodejs.org, then close and reopen your terminal (and VS Code).
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Installation
 
 ```bash
-ng test
+git clone https://github.com/NishaKadam2808/AI_Powered_API_Security_Gateway.git
+cd AI_Powered_API_Security_Gateway/e-commerce-frontend
+npm ci
 ```
 
-## Running end-to-end tests
+`npm ci` installs the exact versions in `package-lock.json`. You can use `npm install` instead if you prefer.
 
-For end-to-end (e2e) testing, run:
+If the code you need is on another branch, switch to it before installing:
 
 ```bash
-ng e2e
+git checkout <branch-name>
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Run the app
 
-## Additional Resources
+```bash
+npm start
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Open http://localhost:4200 in your browser. The page reloads automatically when you change a file.
+
+When the Angular CLI asks about anonymous usage analytics, you can answer `N`.
+
+## Available scripts
+
+| Command | What it does |
+|---------|--------------|
+| `npm start` | Starts the dev server at http://localhost:4200 |
+| `npm run build` | Builds the app for production into `dist/` |
+| `npm run watch` | Rebuilds automatically on changes (development) |
+
+## Project structure
+
+```
+e-commerce-frontend/
+├── public/              Static files served as-is (images are in public/assets)
+├── src/
+│   ├── app/
+│   │   ├── components/  Pages and UI pieces (home, collection, cart, account, navbar, footer)
+│   │   ├── data/        Hardcoded products, collections, trending items, cart
+│   │   └── ...          app.module.ts, app-routing.module.ts, app.component.*
+│   ├── index.html
+│   └── styles.scss      Global styles
+├── angular.json
+└── package.json
+```
+
+## Security
+
+The dependencies were upgraded from Angular 13 (end of life, 127 reported vulnerabilities) to a current Angular version. At the time of the upgrade, `npm audit` reported **0 vulnerabilities**.
+
+Check it yourself at any time:
+
+```bash
+npm audit
+```
+
+New advisories can appear over time. If `npm audit` reports something, update the affected package or run `npm audit fix`. Avoid `npm audit fix --force` unless you are ready to handle breaking changes.
+
+This is a demo client with hardcoded data and no real authentication. Do not treat the login and register pages as secure.
+
+## Troubleshooting
+
+**The Angular CLI says the Node.js version is not supported**
+
+Install a supported Node.js version (see Requirements), then reopen the terminal and run `node -v` to confirm.
+
+**`npm ci` fails with a lock file error**
+
+Delete `node_modules` and run `npm install` instead.
+
+**Port 4200 is already in use**
+
+```bash
+npx ng serve --port 4300
+```
+
+**Images or styles are missing**
+
+Images are served from `public/assets`. In stylesheets use `url("/assets/images/...")`, and in templates use `assets/images/...`.
+
+**EPERM or EBUSY errors on Windows**
+
+Avoid cloning into a OneDrive-synced folder. Use a path such as `D:\projects\` or `C:\projects\`.
+
+## Contributing (team workflow)
+
+1. Get the latest code:
+   ```bash
+   git checkout main
+   git pull
+   ```
+2. Create your own branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit and push your changes:
+   ```bash
+   git add .
+   git commit -m "Describe your change"
+   git push -u origin feature/your-feature-name
+   ```
+4. Open a pull request on GitHub and ask a teammate to review it.
+
+## Team
+
+| Name | Role |
+|------|------|
+| Mayur Tummewar | Team Member |
+| Shruti Sonalkar | Team Member |
+| Sayali Rathod | Team Member |
+| Nisha Kadam | Team Member |
