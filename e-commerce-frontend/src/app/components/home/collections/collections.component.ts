@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { collections } from "../../../data/collections"
 import { COLLECTION } from "../../../data/COLLECTION"
 
 @Component({
+  standalone: false,
   selector: 'app-collections',
   templateUrl: './collections.component.html',
   styleUrls: ['./collections.component.scss']

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { TRENDING } from 'src/app/data/TRENDING';
 import { trendings } from 'src/app/data/trendings';
 
 @Component({
+  standalone: false,
   selector: 'app-trending',
   templateUrl: './trending.component.html',
   styleUrls: ['./trending.component.scss']

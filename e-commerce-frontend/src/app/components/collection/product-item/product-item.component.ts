@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input } from '@angular/core';
 import { TRENDING } from 'src/app/data/TRENDING';
 import { Router } from '@angular/router';
 
 @Component({
+  standalone: false,
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss']

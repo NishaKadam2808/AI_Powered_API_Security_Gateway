@@ -1,162 +1,59 @@
-# E-Commerce Frontend (Angular)
+# FrontendNew
 
-A frontend for a basic e-commerce website built with **Angular 13**.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.5.
 
+## Development server
 
-## Features
-
-- Trending products
-- Product collections grouped by category
-- Products in a collection with filters
-- Individual product page with images and details
-- Cart and checkout
-- Login, register, reset password, logout
-- Account details and edit account details
-- Order history
-
-> Note: Some features (such as login and order history) may need a backend API. Check the services in `src/app` to see which data is hardcoded and which is fetched from an API.
-
-## Tech Stack
-
-- Angular 13
-- TypeScript 4.4
-- RxJS 7.4
-- SCSS
-- angular-responsive-carousel
-
-## Prerequisites
-
-Install the following before you start:
-
-| Tool | Version | Download |
-|------|---------|----------|
-| Node.js | **16.x** (recommended for Angular 13) | https://nodejs.org |
-| npm | 8.x or higher (comes with Node.js) | - |
-| Git | Latest | https://git-scm.com |
-
-Check your versions:
+To start a local development server, run:
 
 ```bash
-node -v
-npm -v
-git --version
+ng serve
 ```
 
-### Using a different Node.js version?
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-Angular 13 works best on Node 16. If your Node version is newer (17 or above), use a version manager to switch:
+## Code scaffolding
 
-- **Windows:** [nvm-windows](https://github.com/coreybutler/nvm-windows)
-- **macOS / Linux:** [nvm](https://github.com/nvm-sh/nvm)
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
 ```bash
-nvm install 16
-nvm use 16
+ng generate component component-name
 ```
 
-## Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/NishaKadam2808/AI-Powered-API-Security-Gateway.git
-   cd AI-Powered-API-Security-Gateway
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   npm install --legacy-peer-deps
-   ```
-
-3. **Start the development server**
-
-   ```bash
-   npm start
-   ```
-
-4. **Open the app**
-
-   Go to http://localhost:4200 in your browser. The app reloads automatically when you change a source file.
-
-> When Angular asks about sharing anonymous usage data, you can answer `N`. It does not affect the app.
-
-## Available Scripts
-
-| Command | What it does |
-|---------|--------------|
-| `npm start` | Runs the dev server at http://localhost:4200 |
-| `npm run build` | Builds the app into the `dist/` folder |
-| `npm run watch` | Rebuilds automatically on changes (development) |
-| `npm test` | Runs unit tests with Karma |
-
-## Troubleshooting
-
-**`ERR_OSSL_EVP_UNSUPPORTED` error on startup**
-
-You are on a newer Node.js version. Either switch to Node 16 (recommended) or enable the legacy OpenSSL provider before running the app:
-
-- Windows PowerShell:
-  ```powershell
-  $env:NODE_OPTIONS="--openssl-legacy-provider"
-  npm start
-  ```
-- macOS / Linux:
-  ```bash
-  export NODE_OPTIONS=--openssl-legacy-provider
-  npm start
-  ```
-
-**`npm install` fails with peer dependency errors**
-
-Use:
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
 ```bash
-npm install --legacy-peer-deps
+ng generate --help
 ```
 
-**`EPERM` or `EBUSY` errors during install on Windows**
+## Building
 
-Don't keep the project inside a OneDrive-synced folder. Move it to a path such as `C:\projects\` and install again.
-
-**Port 4200 is already in use**
-
-Run on another port:
+To build the project run:
 
 ```bash
-npx ng serve --port 4300
+ng build
 ```
 
-**Warning about "legacy View Engine" libraries**
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-This warning about `angular-responsive-carousel` is harmless. The app still builds and runs.
+## Running unit tests
 
-## Contributing (Team Workflow)
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
-1. Pull the latest code:
-   ```bash
-   git checkout main
-   git pull
-   ```
-2. Create your own branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes, then commit and push:
-   ```bash
-   git add .
-   git commit -m "Describe your change"
-   git push -u origin feature/your-feature-name
-   ```
-4. Open a **Pull Request** on GitHub and ask a teammate to review it.
+```bash
+ng test
+```
 
-## Team
+## Running end-to-end tests
 
-| Name | Role |
-|------|------|
-| Mayur Tummewar | Team Member |
-| Shruti Sonalkar | Team Member |
-| Sayali Rathod | Team Member |
-| Nisha Kadam | Team Member |
-| _Add teammate_ | _Role_ |
+For end-to-end (e2e) testing, run:
 
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

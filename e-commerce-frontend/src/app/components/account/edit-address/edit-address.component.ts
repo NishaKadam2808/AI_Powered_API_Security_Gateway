@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
+  standalone: false,
   selector: 'app-edit-address',
   templateUrl: './edit-address.component.html',
   styleUrls: ['../login/login.component.scss']

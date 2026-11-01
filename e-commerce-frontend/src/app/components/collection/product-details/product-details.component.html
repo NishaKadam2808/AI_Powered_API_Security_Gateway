@@ -1,17 +1,24 @@
 <div class="product-details">
   <div class="dtl-box">
     <div class="carousel-box">
-      <carousel
-        [images]="images"
-        [width]="carouselWidth"
-        [height]="carouselHeight"
-        [objectFit]="'cover'"
-        [cellWidth]="'100%'"
-        [autoplay]="true"
-        [dots]="true"
-        [loop]="true"
-      >
-      </carousel>
+      <div class="carousel" [style.width.px]="carouselWidth" [style.height.px]="carouselHeight">
+  <div class="slides" [style.transform]="'translateX(-' + current() * 100 + '%)'">
+    @for (img of images; track $index) {
+      <img [src]="img.path" [alt]="productName + ' image ' + ($index + 1)" />
+    }
+  </div>
+  <div class="dots">
+    @for (img of images; track $index) {
+      <button
+        type="button"
+        class="dot"
+        [class.active]="$index === current()"
+        (click)="goTo($index)"
+        [attr.aria-label]="'Show image ' + ($index + 1)"
+      ></button>
+    }
+  </div>
+</div>
     </div>
 
     <div class="buy-box">
