@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { TRENDING } from 'src/app/data/TRENDING';
 import { trendings } from 'src/app/data/trendings';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
+  standalone: false,
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']

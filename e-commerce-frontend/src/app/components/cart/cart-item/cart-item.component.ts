@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+﻿import { Component, Input, OnInit } from '@angular/core';
 import { CART_T } from 'src/app/data/CART_T';
 
 @Component({
+  standalone: false,
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss']

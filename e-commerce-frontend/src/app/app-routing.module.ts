@@ -14,54 +14,18 @@ import { CollectionsComponent } from './components/home/collections/collections.
 import { IndexComponent } from './components/home/index/index.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    component: IndexComponent
-  },
-  {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path: "account",
-    component: AccountDetailsComponent
-  },
-  {
-    path: "account/edit-account-details",
-    component: EditAccountDetailsComponent
-  },
-  {
-    path: "account/edit-address",
-    component: EditAddressComponent
-  },
-  {
-    path: "register",
-    component: RegisterComponent
-  },
-  {
-    path: "forgot-password",
-    component: ForgotPasswordComponent
-  },
-  {
-    path: "reset-password",
-    component: ResetPasswordComponent
-  },
-  {
-    path: "collection/:name",
-    component: ProductsComponent
-  },
-  {
-    path: "collection/:name/:product",
-    component: ProductDetailsComponent
-  },
-  {
-    path: "collections",
-    component: CollectionsComponent
-  },
-  {
-    path: "cart",
-    component: CartComponent
-  }
+  { path: '', component: IndexComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'account', component: AccountDetailsComponent },
+  { path: 'account/edit-account-details', component: EditAccountDetailsComponent },
+  { path: 'account/edit-address', component: EditAddressComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'collection/:name', component: ProductsComponent },
+  { path: 'collection/:name/:product', component: ProductDetailsComponent },
+  { path: 'collections', component: CollectionsComponent },
+  { path: 'cart', component: CartComponent }
 ];
 
 @NgModule({

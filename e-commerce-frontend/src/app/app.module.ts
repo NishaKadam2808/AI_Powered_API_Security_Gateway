@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,8 +54,7 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    IvyCarouselModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

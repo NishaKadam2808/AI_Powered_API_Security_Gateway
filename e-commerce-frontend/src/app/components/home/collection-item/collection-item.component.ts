@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input } from '@angular/core';
 import { COLLECTION } from 'src/app/data/COLLECTION';
 import { Router } from '@angular/router';
 
 @Component({
+  standalone: false,
   selector: 'app-collection-item',
   templateUrl: './collection-item.component.html',
   styleUrls: ['./collection-item.component.scss']

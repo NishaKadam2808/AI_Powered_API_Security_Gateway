@@ -1,38 +1,26 @@
 # E-Commerce Frontend (Angular)
 
-A frontend for a basic e-commerce website built with **Angular 13**.
+Frontend for a basic e-commerce website, built with Angular. It is part of the **AI-Powered API Security Gateway** project and works as a demo client.
 
 
 ## Features
 
 - Trending products
 - Product collections grouped by category
-- Products in a collection with filters
-- Individual product page with images and details
-- Cart and checkout
-- Login, register, reset password, logout
-- Account details and edit account details
-- Order history
+- Products in a collection
+- Product page with image carousel, quantity selector, and details
+- Cart
+- Login, register, forgot password, and reset password pages
+- Account details, edit account details, and edit address pages
 
-> Note: Some features (such as login and order history) may need a backend API. Check the services in `src/app` to see which data is hardcoded and which is fetched from an API.
+## Requirements
 
-## Tech Stack
-
-- Angular 13
-- TypeScript 4.4
-- RxJS 7.4
-- SCSS
-- angular-responsive-carousel
-
-## Prerequisites
-
-Install the following before you start:
-
-| Tool | Version | Download |
-|------|---------|----------|
-| Node.js | **16.x** (recommended for Angular 13) | https://nodejs.org |
-| npm | 8.x or higher (comes with Node.js) | - |
-| Git | Latest | https://git-scm.com |
+| Tool | Version | Notes |
+|------|---------|-------|
+| Node.js | **22.22.3 or newer**, or **24.15.0 or newer**, or **26.0.0 or newer** | Required by the Angular CLI. Older versions will not run. |
+| npm | 10 or newer | Comes with Node.js |
+| Git | Any recent version | To clone the repository |
+| Angular | Installed through `npm install` | See `package.json` for the exact version |
 
 Check your versions:
 
@@ -42,98 +30,99 @@ npm -v
 git --version
 ```
 
-### Using a different Node.js version?
-
-Angular 13 works best on Node 16. If your Node version is newer (17 or above), use a version manager to switch:
-
-- **Windows:** [nvm-windows](https://github.com/coreybutler/nvm-windows)
-- **macOS / Linux:** [nvm](https://github.com/nvm-sh/nvm)
-
-```bash
-nvm install 16
-nvm use 16
-```
+If your Node.js is too old, download the latest LTS from https://nodejs.org, then close and reopen your terminal (and VS Code).
 
 ## Installation
 
-1. **Clone the repository**
+```bash
+git clone https://github.com/NishaKadam2808/AI_Powered_API_Security_Gateway.git
+cd AI_Powered_API_Security_Gateway/e-commerce-frontend
+npm ci
+```
 
-   ```bash
-   git clone https://github.com/NishaKadam2808/AI-Powered-API-Security-Gateway.git
-   cd AI-Powered-API-Security-Gateway
-   ```
+`npm ci` installs the exact versions in `package-lock.json`. You can use `npm install` instead if you prefer.
 
-2. **Install dependencies**
+If the code you need is on another branch, switch to it before installing:
 
-   ```bash
-   npm install --legacy-peer-deps
-   ```
+```bash
+git checkout <branch-name>
+```
 
-3. **Start the development server**
+## Run the app
 
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
 
-4. **Open the app**
+Open http://localhost:4200 in your browser. The page reloads automatically when you change a file.
 
-   Go to http://localhost:4200 in your browser. The app reloads automatically when you change a source file.
+When the Angular CLI asks about anonymous usage analytics, you can answer `N`.
 
-> When Angular asks about sharing anonymous usage data, you can answer `N`. It does not affect the app.
-
-## Available Scripts
+## Available scripts
 
 | Command | What it does |
 |---------|--------------|
-| `npm start` | Runs the dev server at http://localhost:4200 |
-| `npm run build` | Builds the app into the `dist/` folder |
+| `npm start` | Starts the dev server at http://localhost:4200 |
+| `npm run build` | Builds the app for production into `dist/` |
 | `npm run watch` | Rebuilds automatically on changes (development) |
-| `npm test` | Runs unit tests with Karma |
+
+## Project structure
+
+```
+e-commerce-frontend/
+├── public/              Static files served as-is (images are in public/assets)
+├── src/
+│   ├── app/
+│   │   ├── components/  Pages and UI pieces (home, collection, cart, account, navbar, footer)
+│   │   ├── data/        Hardcoded products, collections, trending items, cart
+│   │   └── ...          app.module.ts, app-routing.module.ts, app.component.*
+│   ├── index.html
+│   └── styles.scss      Global styles
+├── angular.json
+└── package.json
+```
+
+## Security
+
+The dependencies were upgraded from Angular 13 (end of life, 127 reported vulnerabilities) to a current Angular version. At the time of the upgrade, `npm audit` reported **0 vulnerabilities**.
+
+Check it yourself at any time:
+
+```bash
+npm audit
+```
+
+New advisories can appear over time. If `npm audit` reports something, update the affected package or run `npm audit fix`. Avoid `npm audit fix --force` unless you are ready to handle breaking changes.
+
+This is a demo client with hardcoded data and no real authentication. Do not treat the login and register pages as secure.
 
 ## Troubleshooting
 
-**`ERR_OSSL_EVP_UNSUPPORTED` error on startup**
+**The Angular CLI says the Node.js version is not supported**
 
-You are on a newer Node.js version. Either switch to Node 16 (recommended) or enable the legacy OpenSSL provider before running the app:
+Install a supported Node.js version (see Requirements), then reopen the terminal and run `node -v` to confirm.
 
-- Windows PowerShell:
-  ```powershell
-  $env:NODE_OPTIONS="--openssl-legacy-provider"
-  npm start
-  ```
-- macOS / Linux:
-  ```bash
-  export NODE_OPTIONS=--openssl-legacy-provider
-  npm start
-  ```
+**`npm ci` fails with a lock file error**
 
-**`npm install` fails with peer dependency errors**
-
-Use:
-
-```bash
-npm install --legacy-peer-deps
-```
-
-**`EPERM` or `EBUSY` errors during install on Windows**
-
-Don't keep the project inside a OneDrive-synced folder. Move it to a path such as `C:\projects\` and install again.
+Delete `node_modules` and run `npm install` instead.
 
 **Port 4200 is already in use**
-
-Run on another port:
 
 ```bash
 npx ng serve --port 4300
 ```
 
-**Warning about "legacy View Engine" libraries**
+**Images or styles are missing**
 
-This warning about `angular-responsive-carousel` is harmless. The app still builds and runs.
+Images are served from `public/assets`. In stylesheets use `url("/assets/images/...")`, and in templates use `assets/images/...`.
 
-## Contributing (Team Workflow)
+**EPERM or EBUSY errors on Windows**
 
-1. Pull the latest code:
+Avoid cloning into a OneDrive-synced folder. Use a path such as `D:\projects\` or `C:\projects\`.
+
+## Contributing (team workflow)
+
+1. Get the latest code:
    ```bash
    git checkout main
    git pull
@@ -142,13 +131,13 @@ This warning about `angular-responsive-carousel` is harmless. The app still buil
    ```bash
    git checkout -b feature/your-feature-name
    ```
-3. Make your changes, then commit and push:
+3. Commit and push your changes:
    ```bash
    git add .
    git commit -m "Describe your change"
    git push -u origin feature/your-feature-name
    ```
-4. Open a **Pull Request** on GitHub and ask a teammate to review it.
+4. Open a pull request on GitHub and ask a teammate to review it.
 
 ## Team
 
@@ -158,5 +147,3 @@ This warning about `angular-responsive-carousel` is harmless. The app still buil
 | Shruti Sonalkar | Team Member |
 | Sayali Rathod | Team Member |
 | Nisha Kadam | Team Member |
-| _Add teammate_ | _Role_ |
-
